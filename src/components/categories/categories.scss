@@ -1,0 +1,35 @@
+@use "@styles/colors" as *;
+@use "sass:color";
+
+.categories__container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .category--btn {
+        background-color: $color-tertiary;
+        color: color.scale($color-tertiary, $lightness: -40%);
+        padding: 10px 16px;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 500;
+        width: 140px;
+        
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        height: 64px;
+        
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+}

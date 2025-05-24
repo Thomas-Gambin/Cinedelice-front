@@ -1,0 +1,245 @@
+@use "@styles/colors" as *;
+@use "sass:color";
+
+// Mixins
+@mixin card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem * 2;
+    margin: 1rem 0;
+}
+
+@mixin btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    outline: none;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.create-recipe {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem * 3 1rem * 2;
+    color: $color-text;
+
+    &__title {
+        font-size: 2.2rem;
+        margin-bottom: 1rem * 2.5;
+        color: $color-primary;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem * 3;
+    }
+}
+
+.form-section {
+    @include card;
+
+    &__title {
+        font-size: 1.5rem;
+        color: $color-primary;
+        margin-bottom: 1rem * 1.5;
+        padding-bottom: 1rem * 0.75;
+        border-bottom: 2px solid $color-secondary;
+    }
+}
+
+.form-group {
+    margin-bottom: 1rem * 1.5;
+
+    label {
+        display: block;
+        margin-bottom: 1rem * 0.5;
+        font-weight: 600;
+        color: $color-text;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: 1rem * 0.75;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 576px) {
+        flex-direction: row;
+
+        .form-group {
+            flex: 1;
+        }
+    }
+}
+
+.file-input {
+    padding: 1rem * 0.5;
+    border: 1px dashed #ddd;
+    background-color: $color-tertiary-light;
+
+    &::-webkit-file-upload-button {
+        @include btn;
+        background-color: $color-secondary;
+        color: white;
+        margin-right: 1rem;
+    }
+}
+
+.image-preview {
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 300px;
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+.ingredient-row,
+.step-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: $color-tertiary-light;
+    border-radius: 8px;
+    position: relative;
+
+    .form-group {
+        margin-bottom: 1rem * 0.5;
+    }
+
+    .remove-btn {
+        position: absolute;
+        top: 1rem * 0.5;
+        right: 1rem * 0.5;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: $color-secondary-lighter;
+        color: white;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+
+        &:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        &:hover:not(:disabled) {
+            background-color: color.scale($color-secondary-lighter, $lightness: -10%);
+        }
+    }
+}
+
+.ingredient-row {
+    .form-group:first-child {
+        flex: 2;
+    }
+
+    .quantity-group,
+    .unit-group {
+        flex: 1;
+    }
+}
+
+.step-row {
+    .step-number {
+        background-color: $color-primary;
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-top: 24px;
+    }
+
+    .step-group {
+        flex: 1;
+    }
+}
+
+.add-btn {
+    @include btn;
+    background-color: $color-secondary;
+    color: white;
+    width: 100%;
+    margin-top: 1rem;
+
+    &:hover {
+        background-color: color.scale($color-secondary, $lightness: -5%);
+    }
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    .cancel-btn {
+        @include btn;
+        background-color: $color-tertiary-light;
+        color: $color-text;
+        border: 1px solid #ddd;
+
+        &:hover {
+            background-color: color.scale($color-tertiary-light, $lightness: -5%);
+
+        }
+    }
+
+    .submit-btn {
+        @include btn;
+        background-color: $color-primary;
+        color: white;
+        min-width: 150px;
+
+        &:hover {
+            background-color: color.scale($color-primary, $lightness: -5%);
+        }
+    }
+}
