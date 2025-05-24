@@ -1,6 +1,8 @@
+
 # Cinedelices
 
-Cinedelices is a group capstone project completed at the end of our training. Our mission was to create a website where users could browse and create recipes inspired by pop culture (movies, series, anime/manga, video games, literature).
+**Cinedelices** is a group project completed at the end of our training program. Our mission was to create a website wich users could browse and create recipes inspired by pop culture (movies, TV series, anime/manga, video games, literature).
+
 
 # Cinedelices Frontend
 
