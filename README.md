@@ -3,6 +3,7 @@
 
 **Cinedelices** is a group project completed at the end of our training program. Our mission was to create a website wich users could browse and create recipes inspired by pop culture (movies, TV series, anime/manga, video games, literature).
 
+If you want to see the demo of this project you can go here : [https://youtu.be/egVcu_uYYHE](https://youtu.be/egVcu_uYYHE)
 
 # Cinedelices Frontend
 
